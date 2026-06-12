@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featuring the One and Only</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aurora.css">
+    <link rel="stylesheet" href="css/letters.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Ambient background layer -->
+    <div class="aurora"></div>
+    <div class="stars"></div>
+    <img src="assets/images/castle.png" class="castle-background" alt="castle silhouette">
+
+    <!-- Unified Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Audio control toggle -->
+    <button id="audio-toggle" class="audio-control muted" aria-label="Toggle Audio">
+        <svg class="speaker-icon" viewBox="0 0 24 24">
+            <!-- Muted Icon by default -->
+            <path id="speaker-path"
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.79v2.06c3.46-1.42 6-4.8 6-8.85s-2.54-7.43-6-8.85v2.06c2.34 1.29 4 3.85 4 6.79zM3 9v6h4l5 5V4L7 9H3zm7 3v3.17L7.83 13H5v-2h2.83L10 8.83V12z" />
+        </svg>
+    </button>
+
+    <!-- ============================================ -->
+    <!-- SCENE 1: LOADING SCREEN -->
+    <!-- ============================================ -->
+    <section id="loading-screen" class="scene active">
+        <div class="loading-content">
+            <h2 id="loading-text-1" class="typewriter-line"></h2>
+            <h2 id="loading-text-2" class="typewriter-line"></h2>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SCENE 2 & 3 & 4: BIRTHDAY CEREMONY & SEAL REVEAL -->
+    <!-- ============================================ -->
+    <section id="birthday-screen" class="scene">
+        <div class="ceremony-container">
+            <h1 class="ceremony-title">Happy Birthday, <span id="her-name">Akshh</span></h1>
+            <p class="ceremony-subtitle" id="ceremony-instruction">Blow out the candles and make a wish.</p>
+
+            <div class="cake-wrapper" id="cake-wrapper">
+                <!-- Left half of the cake for split effect -->
+                <div class="cake-half left">
+                    <img src="assets/images/cake.png" alt="Cake Left" class="cake-img">
+                </div>
+                <!-- Right half of the cake for split effect -->
+                <div class="cake-half right">
+                    <img src="assets/images/cake.png" alt="Cake Right" class="cake-img">
+                </div>
+
+                <!-- Candles overlay -->
+                <div class="candles-container" id="candles-container">
+                    <!-- Candle 1 -->
+                    <div class="candle" style="left: 28%; bottom: 65%;">
+                        <div class="candle-stick"></div>
+                        <div class="flame-wrapper">
+                            <div class="flame"></div>
+                            <div class="flame-glow"></div>
+                        </div>
+                    </div>
+                    <!-- Candle 2 (Center) -->
+                    <div class="candle" style="left: 50%; bottom: 72%;">
+                        <div class="candle-stick"></div>
+                        <div class="flame-wrapper">
+                            <div class="flame"></div>
+                            <div class="flame-glow"></div>
+                        </div>
+                    </div>
+                    <!-- Candle 3 -->
+                    <div class="candle" style="left: 72%; bottom: 65%;">
+                        <div class="candle-stick"></div>
+                        <div class="flame-wrapper">
+                            <div class="flame"></div>
+                            <div class="flame-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Seal emerging from the split -->
+                <div class="seal-container" id="floating-seal-container" style="display: none;">
+                    <div class="magical-glow-circle"></div>
+                    <img src="assets/textures/waxseal.png" alt="Royal Seal" class="floating-seal" id="royal-seal">
+                    <p class="seal-hint">Touch the seal</p>
+                </div>
+            </div>
+
+            <!-- Interaction Controls -->
+            <div class="interaction-controls" id="interaction-controls">
+                <button id="blow-btn" class="fantasy-btn">Blow Out Candles</button>
+                <div id="mic-indicator" class="mic-status">
+                    <span class="mic-pulse"></span>
+                    <span class="mic-text">Listening for your blow...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinematic Countdown Overlay -->
+    <div id="countdown-overlay">
+        <h1 id="countdown-number">3</h1>
+    </div>
+
+    <!-- Brief Darken transition element -->
+    <div id="darken-transition"></div>
+
+    <!-- ============================================ -->
+    <!-- SCENE 5: ROYAL ARCHIVE ENTRANCE -->
+    <!-- ============================================ -->
+    <section id="archive-entrance" class="scene">
+        <div class="gates-wrapper">
+            <div class="gate left-gate">
+                <div class="gate-panel">
+                    <div class="door-ring left-ring"></div>
+                </div>
+            </div>
+            <div class="gate right-gate">
+                <div class="gate-panel">
+                    <div class="door-ring right-ring"></div>
+                </div>
+            </div>
+            <div class="gates-content-overlay">
+                <h1 class="entrance-title">Welcome to the Royal Archive of Memories</h1>
+                <p class="entrance-subtitle">Memories have been Preserved through time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SCENE 6: MEMORY ARCHIVE -->
+    <!-- ============================================ -->
+    <section id="archive-screen" class="scene">
+        <div class="library-environment">
+            <!-- 3D Library Table Props -->
+            <div class="table-prop quill-pen"></div>
+            <div class="table-prop candle-light candle-left">
+                <div class="table-candle"></div>
+                <div class="flame-wrapper mini">
+                    <div class="flame"></div>
+                </div>
+            </div>
+            <div class="table-prop candle-light candle-right">
+                <div class="table-candle"></div>
+                <div class="flame-wrapper mini">
+                    <div class="flame"></div>
+                </div>
+            </div>
+            <div class="table-prop ancient-map"></div>
+            <div class="table-prop compass"></div>
+
+            <div class="archive-header">
+                <span class="memory-progress" id="memory-progress">Memory I of X</span>
+            </div>
+
+            <!-- Letter Container -->
+            <div class="letter-outer-container">
+                <div class="letter-parchment" id="memory-letter">
+                    <!-- Wax Seal for opening -->
+                    <div class="letter-wax-seal" id="letter-seal-container">
+                        <img src="assets/textures/waxseal.png" alt="Seal" class="seal-crackable" id="letter-seal">
+                        <p class="seal-click-text">Break the seal</p>
+                    </div>
+
+                    <!-- Unfolded Content -->
+                    <div class="letter-content-layout" id="letter-content" style="display: none;">
+                        <div class="letter-image-side">
+                            <div class="gold-filigree-frame">
+                                <img src="" alt="Memory Image" class="memory-img-tag" id="memory-image">
+                            </div>
+                        </div>
+                        <div class="letter-text-side">
+                            <div class="letter-ornament top-ornament"></div>
+                            <h3 class="memory-title" id="memory-title">Memory Title</h3>
+                            <p class="memory-quote" id="memory-quote">"This is the memory quote preserved through space
+                                and time."</p>
+                            <div class="letter-ornament bottom-ornament"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="archive-navigation">
+                <button id="prev-mem-btn" class="nav-arrow prev" disabled>
+                    <span class="gold-arrow">&#x276E;</span> Previous
+                </button>
+                <button id="next-mem-btn" class="nav-arrow next" style="display: none;">
+                    Next <span class="gold-arrow">&#x276F;</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SCENE 7: FINAL SCENE (MAGICAL BOOK) -->
+    <!-- ============================================ -->
+    <section id="book-screen" class="scene">
+        <div class="book-container">
+            <div class="royal-letter" id="magical-book">
+                <div class="royal-letter-inner">
+                    <!-- Top: Wax Seal -->
+                    <div class="royal-emblem-header">
+                        <img src="assets/textures/waxseal.png" alt="Royal Seal" class="royal-seal-emblem">
+                    </div>
+                    
+                    <!-- Headings -->
+                    <h1 class="royal-title">Happy Birthday</h1>
+                    <h2 class="royal-name" id="book-left-subheading">Akshh</h2>
+                    
+                    <!-- Gold Divider -->
+                    <div class="royal-divider"></div>
+                    
+                    <!-- Main Message Area -->
+                    <div class="personal-message-area" id="personal-message">
+                        <!-- Custom paragraph will go here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-sequence" id="final-sequence">
+                <p id="final-line-1" class="final-text-line"></p>
+                <p id="final-line-2" class="final-text-line"></p>
+                <p id="final-line-3" class="final-text-line"></p>
+                <div id="heart-container" style="opacity: 0;">
+                    <div class="glowing-heart">&#x1F499;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP and modular scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/cake.js"></script>
+    <script src="js/letters.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

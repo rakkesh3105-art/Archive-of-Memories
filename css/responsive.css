@@ -1,0 +1,428 @@
+/* ====================================================
+   RESPONSIVE STYLES
+   ==================================================== */
+
+/* ---- Tablets (max 900px) ---- */
+@media (max-width: 900px) {
+    /* CHANGE 7: Book — stop hard scale-down, use natural layout instead */
+    .book-container {
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+}
+
+/* ---- Mobile (max 768px) ---- */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    /* --- Audio Toggle --- */
+    .audio-control {
+        top: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .speaker-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* --- Birthday Ceremony --- */
+    .ceremony-container {
+        gap: 20px;
+    }
+
+    .ceremony-title {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+    }
+
+    .ceremony-subtitle {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        line-height: 1.4;
+    }
+
+    .cake-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .candle {
+        height: 40px;
+    }
+
+    .candle-stick {
+        height: 18px;
+    }
+
+    .flame-wrapper {
+        top: -18px;
+        width: 12px;
+        height: 20px;
+    }
+
+    .flame {
+        width: 8px;
+        height: 14px;
+    }
+
+    .floating-seal {
+        width: 75px;
+        height: 75px;
+    }
+
+    /* ====================================================
+       CHANGE 3: Memory Archive — Fix Header Overlap
+       Header becomes part of the normal document flow
+       so it always sits ABOVE the parchment letter.
+       ==================================================== */
+    .library-environment {
+        justify-content: flex-start;
+        padding-top: 0;
+        overflow-y: auto;
+    }
+
+    .archive-header {
+        /* Override absolute positioning so header stays above letter */
+        position: relative;
+        top: auto;
+        width: 100%;
+        text-align: center;
+        padding: 16px 10px 10px;
+        margin-bottom: 12px;
+        z-index: 15;
+        background: transparent;
+        flex-shrink: 0;
+    }
+
+    .memory-progress {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    /* Loading screen — ensure Cinzel text has breathing room */
+    .loading-content {
+        padding: 0 24px;
+    }
+
+    .typewriter-line {
+        font-size: clamp(1.1rem, 5vw, 1.8rem);
+        letter-spacing: 2px;
+        line-height: 1.45;
+        margin-bottom: 20px;
+    }
+
+    /* ====================================================
+       CHANGE 3/4: Letter Parchment — layout stacking
+       ==================================================== */
+    .letter-outer-container {
+        /* Remove max-height — library-environment overflow-y handles scrolling */
+        height: auto;
+        min-height: 420px;
+        width: 94%;
+        flex-shrink: 0;
+    }
+
+    .letter-parchment {
+        transform: rotateX(0deg);
+        height: auto;
+        min-height: 420px;
+    }
+
+    .letter-content-layout {
+        flex-direction: column;
+        padding: 18px 16px;
+        height: auto;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        overflow: visible;
+    }
+
+    /* ====================================================
+       CHANGE 5: Image container — prevent facial cropping
+       ==================================================== */
+    .letter-image-side {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gold-filigree-frame {
+        width: 155px;
+        height: 170px;
+    }
+
+    /* object-position for faces is set globally in letters.css */
+
+    /* ====================================================
+       CHANGE 4: Text side — readability on mobile
+       ==================================================== */
+    .letter-text-side {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: flex-start;
+        flex-shrink: 0;
+    }
+
+    .top-ornament,
+    .bottom-ornament {
+        display: none; /* Save vertical space on mobile */
+    }
+
+    .memory-title {
+        font-size: clamp(1.2rem, 5vw, 1.45rem);
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #1c0d04;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+    }
+
+    /* CHANGE 4: Significantly improved quote readability */
+    .memory-quote {
+        font-size: clamp(1.05rem, 4.5vw, 1.25rem);
+        line-height: 1.65;
+        color: #1c0d04;
+        font-weight: 600;
+        letter-spacing: 0.1px;
+        text-shadow: none;
+    }
+
+    /* ====================================================
+       Navigation
+       ==================================================== */
+    .archive-navigation {
+        margin-top: 14px;
+        width: 94%;
+        flex-shrink: 0;
+        padding-bottom: 10px;
+    }
+
+    /* Table decorations faded on small screens */
+    .table-prop {
+        opacity: 0.12 !important;
+    }
+
+    .candle-left {
+        left: 3%;
+    }
+
+    .candle-right {
+        right: 3%;
+    }
+
+    /* ====================================================
+       CHANGE 7: Final Book Scene — mobile focal element
+       Replace aggressive scale() with natural page stacking
+       ==================================================== */
+    #book-screen {
+        /* Allow scrolling so all content is reachable */
+        overflow-y: auto;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px 12px 30px;
+    }
+
+    .book-container {
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        perspective: none;
+        padding: 0;
+    }
+
+    .royal-letter {
+        width: 94%;
+        max-width: 440px;
+        height: auto;
+        min-height: auto;
+        padding: 16px;
+        margin: 0 auto;
+    }
+
+    .royal-letter-inner {
+        padding: 24px 18px;
+    }
+
+    .royal-seal-emblem {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 12px;
+    }
+
+    .royal-title {
+        font-size: 1.65rem;
+    }
+
+    .royal-name {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .royal-divider {
+        margin-bottom: 12px;
+    }
+
+    .royal-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 16px;
+    }
+
+    .personal-message-area {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Final sequence lines below the book */
+    .final-sequence {
+        margin-top: 22px;
+        min-height: auto;
+    }
+
+    .final-text-line {
+        font-size: 1.15rem;
+        letter-spacing: 2px;
+        line-height: 1.6;
+    }
+}
+
+/* ---- Small phones (max 480px) ---- */
+@media (max-width: 480px) {
+    /* CHANGE 7: Even tighter padding on very small phones */
+    #book-screen {
+        padding: 16px 8px 30px;
+    }
+
+    .royal-letter {
+        padding: 12px;
+    }
+
+    .royal-letter-inner {
+        padding: 18px 12px;
+    }
+
+    .royal-title {
+        font-size: 1.45rem;
+    }
+
+    .royal-name {
+        font-size: 1.25rem;
+    }
+
+    .personal-message-area {
+        font-size: 1.08rem;
+        line-height: 1.65;
+    }
+
+    .final-text-line {
+        font-size: 1.05rem;
+        letter-spacing: 1.8px;
+    }
+
+    /* CHANGE 4: Slightly larger quote text for very small screens */
+    .memory-quote {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .letter-outer-container {
+        min-height: 380px;
+    }
+
+    .gold-filigree-frame {
+        width: 138px;
+        height: 155px;
+    }
+}
+
+/* ---- Landscape orientation on short screens ---- */
+@media (max-height: 600px) and (orientation: landscape) {
+    .letter-outer-container {
+        height: 240px;
+        min-height: 240px;
+        max-height: 240px;
+    }
+
+    .letter-content-layout {
+        flex-direction: row;
+        padding: 10px;
+        height: 100%;
+    }
+
+    .letter-image-side {
+        width: 35%;
+        height: 100%;
+    }
+
+    .gold-filigree-frame {
+        width: 100px;
+        height: 100px;
+    }
+
+    .letter-text-side {
+        width: 65%;
+        padding-left: 15px;
+        justify-content: center;
+    }
+
+    .memory-quote {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .archive-header {
+        position: absolute;
+        top: 8px;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .royal-letter {
+        width: 90%;
+        max-width: 500px;
+        height: 95vh;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .royal-letter-inner {
+        padding: 15px;
+    }
+
+    .royal-title {
+        font-size: 1.5rem;
+    }
+
+    .royal-name {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .royal-subtitle {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+
+    .personal-message-area {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .book-container {
+        transform: none;
+    }
+}
