@@ -6,7 +6,7 @@ const CONFIG = {
     herName: "Akshh",
     personalMessage: `To my Friend,<br>Every memory in this archive tells a different story. 
     From the tiny baby photos to the funny poses, each page captures a small part of the wonderful person you are.<br>May this year bring you 
-    endless happiness, exciting adventures, success in everything you dream of, and countless new memories waiting to be made.Happy 21 !!`
+    endless happiness, exciting adventures, success in everything you dream of, and countless new memories waiting to be made.`
 };
 
 class FlowManager {
